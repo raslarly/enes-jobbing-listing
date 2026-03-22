@@ -5,18 +5,75 @@ import heroImg from "./assets/hero.png";
 import "./App.css";
 
 interface JobPost {
-  id: nubmer;
+  id: number;
   company: string;
   logo: string;
+  new: boolean;
+  featured: boolean;
   position: string;
   role: string;
   level: string;
-  description: string;
+  postedAt: string;
+  contract: string;
+  location: string;
   languages: string[];
+  tools: string[];
 }
 
 const [jPosts, setJposts] = useState<JobPosts[]>(data);
 const [filters, setFilters] = useState<string[]>([]);
+
+const filteredJobs =
+  filters.length === 0
+    ? jPosts
+    : jPosts.filter((job) => {
+        const tags = [...job.languages, ...job.level, ...job.role];
+        return filters.every((f) => tags.includes(f));
+      });
+
+interface jobCardProps {
+  job: JobPost;
+  onTagClick: (tag: string) => void;
+}
+
+function JobCard({ job, onTagClick }: JobCardProps) {
+  return (
+    <>
+      <div className="job-card">
+        <img src={job.logo} alt={job.company} />
+        <div className="job-card-content">
+          <h3>{job.position}</h3>
+          <p>{job.description}</p>
+          <div className="tags">
+            {job.languages.map((tag) => {
+              return (
+                <div className="tag" key={tag}>
+                  {tag}
+                </div>
+              );
+            })}
+            {job.level.map((tag) => {
+              return (
+                <div className="tag" key={tag}>
+                  {tag}
+                </div>
+              );
+            })}
+            {job.role.map((tag) => {
+              return (
+                <div className="tag" key={tag}>
+                  {tag}
+                </div>
+              );
+            })}
+            <button onClick={() => onTagClick(job.company)}>View Job</button>
+            <button>Apply</button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
 
 function App() {
   const [count, setCount] = useState(0);
