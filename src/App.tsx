@@ -2,6 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
 import heroImg from "./assets/hero.png";
+import webheader from "/public/images/bg-header-desktop.svg";
 import "./App.css";
 import data from "./fe-mentors/data.json";
 
@@ -80,26 +81,31 @@ function App() {
     setFilters(filters.filter((f) => f !== tag));
   };
   return (
-    <div className="app">
-      {filters.length > 0 && (
-        <div className="filter-bar">
-          {filters.map((f) => (
-            <div className="filter" key={f}>
-              <span>{f}</span>
-              <button onClick={() => removeFilter(f)}>X</button>
-            </div>
+    <>
+      <h1>
+        <img src={webheader} alt="Jobs" />
+      </h1>
+      <div className="app">
+        {filters.length > 0 && (
+          <div className="filter-bar">
+            {filters.map((f) => (
+              <div className="filter" key={f}>
+                <span>{f}</span>
+                <button onClick={() => removeFilter(f)}>X</button>
+              </div>
+            ))}
+            <button className="clear-all" onClick={() => setFilters([])}>
+              clear-all
+            </button>
+          </div>
+        )}
+        <div className="job-list">
+          {filteredJobs.map((job) => (
+            <JobCard key={job.id} job={job} onTagClick={addFilter} />
           ))}
-          <button className="clear-all" onClick={() => setFilters([])}>
-            clear-all
-          </button>
         </div>
-      )}
-      <div className="job-list">
-        {filteredJobs.map((job) => (
-          <JobCard key={job.id} job={job} onTagClick={addFilter} />
-        ))}
       </div>
-    </div>
+    </>
   );
 }
 
