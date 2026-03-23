@@ -37,8 +37,8 @@ function JobCard({ job, onTagClick }: JobCardProps) {
       <div className="job-card-content">
         <div className="job-card-header">
           <span className="company">{job.company}</span>
-          {job.new && <span className="badge new"> NEW!</span>}
-          {job.featured && <span className="badge featured"> FEATURED</span>}
+          {job.new && <span className="badge-new">NEW!</span>}
+          {job.featured && <span className="badge-featured">FEATURED!</span>}
         </div>
         <h3>{job.position}</h3>
         <div className="job-meta">
