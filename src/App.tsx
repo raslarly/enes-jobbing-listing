@@ -29,33 +29,33 @@ interface JobCardProps {
 }
 
 function JobCard({ job, onTagClick }: JobCardProps) {
-  const tags = [job.role, job.level, ...job.languages, ...job.tools];
+  const tags = [
+    ...new Set([job.role, job.level, ...job.languages, ...job.tools]),
+  ];
   return (
-    <>
-      <div className={`job-card ${job.featured ? "featured" : ""}`}>
-        <img src={job.logo} alt={job.company} />
-        <div className="job-card-content">
-          <div className="job-card-header">
-            <span className="company">{job.company}</span>
-            {job.new && <span className="badge new">NEW!</span>}
-            {job.featured && <span className="badge featured">FEATURED</span>}
-          </div>
-          <h3>{job.position}</h3>
-          <div className="job-meta">
-            <span>{job.postedAt}</span>
-            <span>{job.contract}</span>
-            <span>{job.location}</span>
-          </div>
-          <div className="tags">
-            {tags.map((tag) => (
-              <button className="tag" key={tag} onClick={() => onTagClick(tag)}>
-                {tag}
-              </button>
-            ))}
-          </div>
+    <div className={`job-card ${job.featured ? "featured" : ""}`}>
+      <img src={job.logo} alt={job.company} />
+      <div className="job-card-content">
+        <div className="job-card-header">
+          <span className="company">{job.company}</span>
+          {job.new && <span className="badge new">NEW!</span>}
+          {job.featured && <span className="badge featured">FEATURED</span>}
+        </div>
+        <h3>{job.position}</h3>
+        <div className="job-meta">
+          <span>{job.postedAt}</span>
+          <span>{job.contract}</span>
+          <span>{job.location}</span>
+        </div>
+        <div className="tags">
+          {tags.map((tag) => (
+            <button className="tag" key={tag} onClick={() => onTagClick(tag)}>
+              {tag}
+            </button>
+          ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -67,7 +67,7 @@ function App() {
     filters.length === 0
       ? jPosts
       : jPosts.filter((job) => {
-          const tags = [...job.languages, ...job.level, ...job.role];
+          const tags = [...job.languages, ...job.tools, job.level, job.role];
           return filters.every((f) => tags.includes(f));
         });
 
@@ -80,28 +80,26 @@ function App() {
     setFilters(filters.filter((f) => f !== tag));
   };
   return (
-    <>
-      <div className="app">
-        {filters.length > 0 && (
-          <div className="filter-bar">
-            {filters.map((f) => (
-              <div className="filter" key={f}>
-                <span>{f}</span>
-                <button onClick={() => removeFilter(f)}>X</button>
-              </div>
-            ))}
-            <button className="clear-all" onClick={() => setFilters([])}>
-              clear-all
-            </button>
-          </div>
-        )}
-        <div className="job-list">
-          {filteredJobs.map((job) => (
-            <JobCard key={job.id} job={job} onTagClick={addFilter} />
+    <div className="app">
+      {filters.length > 0 && (
+        <div className="filter-bar">
+          {filters.map((f) => (
+            <div className="filter" key={f}>
+              <span>{f}</span>
+              <button onClick={() => removeFilter(f)}>X</button>
+            </div>
           ))}
+          <button className="clear-all" onClick={() => setFilters([])}>
+            clear-all
+          </button>
         </div>
+      )}
+      <div className="job-list">
+        {filteredJobs.map((job) => (
+          <JobCard key={job.id} job={job} onTagClick={addFilter} />
+        ))}
       </div>
-    </>
+    </div>
   );
 }
 
