@@ -32,6 +32,9 @@
     font-size: 16px;
   }
 }
+body {
+  background-color: hsl(152.6, 95.8%, 90.6%);
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -57,25 +60,27 @@
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
-  /*border-inline: 1px solid var(--border);*/
+  border-inline: none;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  background-color: hsl(152.6, 95.8%, 90.6%);
 }
 
 .job-card {
   max-width: 100%;
+  width: 1360px;
   height: 160px;
   overflow: hidden;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 1rem;
-  border-radius: 3rem;
+  border-radius: 0.25rem;
   padding: 1rem;
-  background: slateblue;
-  margin: 0 auto;
+  background: hsl(162, 55.6%, 96.5%);
+  margin: 5px;
 }
 
 .job-card-content {
@@ -88,13 +93,12 @@
 }
 
 .job-list {
-  max-width: 1000px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 1rem;
-  gap: 1rem;
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: hsl(152.6, 95.8%, 90.6%);
 }
 
 .tags {
