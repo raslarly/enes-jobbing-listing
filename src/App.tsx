@@ -5,6 +5,8 @@ import heroImg from "./assets/hero.png";
 import "./App.css";
 import data from "./fe-mentors/data.json";
 
+// now I only need to wear the assets
+
 interface JobPost {
   id: number;
   company: string;
@@ -30,7 +32,7 @@ function JobCard({ job, onTagClick }: JobCardProps) {
   const tags = [job.role, job.level, ...job.languages, ...job.tools];
   return (
     <>
-      <div className={'job-card ${job.featured ? "featured" : ""}'}>
+      <div className={`job-card ${job.featured ? "featured" : ""}`}>
         <img src={job.logo} alt={job.company} />
         <div className="job-card-content">
           <div className="job-card-header">
@@ -70,7 +72,7 @@ function App() {
         });
 
   const addFilter = (tag: string) => {
-    if (!filtersçincludes(tag)) {
+    if (!filters.includes(tag)) {
       setFilters([...filters, tag]);
     }
   };
