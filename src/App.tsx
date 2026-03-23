@@ -1,8 +1,6 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "./assets/vite.svg";
-import heroImg from "./assets/hero.png";
 import webheader from "/public/images/bg-header-desktop.svg";
+import iconRemove from "/public/images/icon-remove.svg";
 import "./App.css";
 import data from "./fe-mentors/data.json";
 
@@ -91,7 +89,9 @@ function App() {
             {filters.map((f) => (
               <div className="filter" key={f}>
                 <span>{f}</span>
-                <button onClick={() => removeFilter(f)}>X</button>
+                <button onClick={() => removeFilter(f)}>
+                  <img src={iconRemove} alt="remove" />
+                </button>
               </div>
             ))}
             <button className="clear-all" onClick={() => setFilters([])}>
