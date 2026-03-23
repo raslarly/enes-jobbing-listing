@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
 import heroImg from "./assets/hero.png";
 import "./App.css";
+import "./fe-mentors/data.json";
 
 interface JobPost {
   id: number;
@@ -18,22 +19,6 @@ interface JobPost {
   location: string;
   languages: string[];
   tools: string[];
-}
-
-const [jPosts, setJposts] = useState<JobPosts[]>(data);
-const [filters, setFilters] = useState<string[]>([]);
-
-const filteredJobs =
-  filters.length === 0
-    ? jPosts
-    : jPosts.filter((job) => {
-        const tags = [...job.languages, ...job.level, ...job.role];
-        return filters.every((f) => tags.includes(f));
-      });
-
-interface jobCardProps {
-  job: JobPost;
-  onTagClick: (tag: string) => void;
 }
 
 function JobCard({ job, onTagClick }: JobCardProps) {
@@ -77,7 +62,21 @@ function JobCard({ job, onTagClick }: JobCardProps) {
 
 function App() {
   const [count, setCount] = useState(0);
+  const [jPosts, setJposts] = useState<JobPost[]>(data);
+  const [filters, setFilters] = useState<string[]>([]);
 
+  const filteredJobs =
+    filters.length === 0
+      ? jPosts
+      : jPosts.filter((job) => {
+          const tags = [...job.languages, ...job.level, ...job.role];
+          return filters.every((f) => tags.includes(f));
+        });
+
+  interface jobCardProps {
+    job: JobPost;
+    onTagClick: (tag: string) => void;
+  }
   return <></>;
 }
 
