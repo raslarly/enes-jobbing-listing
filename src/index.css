@@ -84,15 +84,42 @@ body {
 }
 
 .badge-new {
-  border-radius: 1.5rem;
+  border-radius: 0.5rem;
   background-color: hsl(163.1, 77.7%, 59.6%);
   color: white;
+  padding: 0.125rem 0.25rem;
 }
 
 .badge-featured {
-  border-radius: 1.5rem;
+  border-radius: 0.5rem;
   background-color: red;
   color: white;
+  padding: 0.125rem 0.25rem;
+}
+
+.company {
+  background-color: hsl(163.1, 77.4%, 26.1%);
+  border-radius: 0.25rem;
+  color: hsl(163.2, 77.2%, 49.8%);
+  padding: 0.25rem 0.5rem;
+  font-size: 1.25rem;
+}
+
+.filter-bar {
+  background-color: hsl(162.9, 45.5%, 84.9%);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.filter {
+  background-color: hsl(162.5, 65.8%, 71.4%);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
 }
 
 .job-card-content {
@@ -112,14 +139,33 @@ body {
   flex-direction: column;
   background-color: hsl(152.6, 95.8%, 90.6%);
 }
-
+/*
 .tags {
   flex-wrap: wrap;
   display: flex;
   padding: 1px;
   border-radius: 3px;
-  background-color: hsl(180, 52%, 96%);
-  color: hsl(180, 52%, 16%);
+  background-color: purple;
+  color: yellow;
+  border: none;
+  transition: background 0.2s;
+}
+*/
+
+.tag {
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem 0.75rem;
+  border-radius: 0.375rem;
+  background: hsl(180, 29%, 50%);
+  color: white;
+  font-size: 0.8rem;
+  font-family: inherit;
+  transition: background 0.2s;
+  padding: 0.25rem 0.5rem;
+}
+.tag:hover {
+  background: hsl(180, 29%, 40%);
 }
 
 body {
