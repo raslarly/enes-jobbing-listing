@@ -1,3 +1,5 @@
+/* yeah I'm editing this one */
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -48,18 +50,30 @@
   #social .button-icon {
     filter: invert(1) brightness(2);
   }
-}
-
 #root {
-  width: 1126px;
+  width: 1440px;
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
-  border-inline: 1px solid var(--border);
+  /*border-inline: 1px solid var(--border);*/
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+}
+
+.job-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 1.5rem;
+  padding: 1rem;
+  background: slateblue;
+}
+
+.job-card-content {
+  flex: 1;
 }
 
 body {

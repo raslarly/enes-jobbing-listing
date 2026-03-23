@@ -1,6 +1,6 @@
 import { useState } from "react";
 import webheader from "/public/images/bg-header-desktop.svg";
-import iconRemove from "/public/images/icon-remove.svg";
+// import iconRemove from "/public/images/icon-remove.svg";
 import "./App.css";
 import data from "./fe-mentors/data.json";
 import { XMarkIcon } from "@heroicons/react/24/solid";
