@@ -3,7 +3,7 @@ import webheader from "/public/images/bg-header-desktop.svg";
 import iconRemove from "/public/images/icon-remove.svg";
 import "./App.css";
 import data from "./fe-mentors/data.json";
-
+import { XMarkIcon } from "@heroicons/react/24/solid";
 // now I only need to wear the assets
 
 interface JobPost {
@@ -37,8 +37,8 @@ function JobCard({ job, onTagClick }: JobCardProps) {
       <div className="job-card-content">
         <div className="job-card-header">
           <span className="company">{job.company}</span>
-          {job.new && <span className="badge new">NEW!</span>}
-          {job.featured && <span className="badge featured">FEATURED</span>}
+          {job.new && <span className="badge new"> NEW!</span>}
+          {job.featured && <span className="badge featured"> FEATURED</span>}
         </div>
         <h3>{job.position}</h3>
         <div className="job-meta">
@@ -80,7 +80,7 @@ function App() {
   };
   return (
     <>
-      <h1>
+      <h1 className="header">
         <img src={webheader} alt="Jobs" />
       </h1>
       <div className="app">
@@ -90,7 +90,7 @@ function App() {
               <div className="filter" key={f}>
                 <span>{f}</span>
                 <button onClick={() => removeFilter(f)}>
-                  <img src={iconRemove} alt="remove" />
+                  <XMarkIcon style={{ width: "0.75rem" }} />
                 </button>
               </div>
             ))}
