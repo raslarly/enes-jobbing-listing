@@ -33,7 +33,9 @@ function JobCard({ job, onTagClick }: JobCardProps) {
     ...new Set([job.role, job.level, ...job.languages, ...job.tools]),
   ];
   return (
-    <div className={`job-card ${job.featured ? "featured" : ""}`}>
+    <div
+      className={`job-card my-2 rounded-md ${job.featured ? "featured" : ""}`}
+    >
       <img src={job.logo} alt={job.company} />
       <div className="job-card-content">
         <div className="job-card-header">
@@ -48,10 +50,14 @@ function JobCard({ job, onTagClick }: JobCardProps) {
           )}
           {job.featured && <span className="badge-featured">FEATURED!</span>}
         </div>
-        <h3>{job.position}</h3>
-        <div className="job-meta">
+        <h3 className="flex flex-row text-[#006e1f] text-[1.15rem] font-bold">
+          {job.position}
+        </h3>
+        <div className=" flex flex-row job-meta gap-1">
           <span>{job.postedAt}</span>
+          <span> • </span>
           <span>{job.contract}</span>
+          <span> • </span>
           <span>{job.location}</span>
         </div>
       </div>
@@ -95,7 +101,7 @@ function App() {
       />
       <div className="mx-auto app">
         {filters.length > 0 && (
-          <div className=" -mt-[1.5rem] min-h-[4rem]  max-w-[1360px] bg-[#bdf0f0] p-[0.5] rounded-[0.5rem] flex flex-row flex-wrap gap-[0.5rem] items-center filter-bar">
+          <div className=" -mt-[2rem] min-h-[4rem]  max-w-[1360px] bg-[#bdf0f0] p-[0.5] rounded-[0.5rem] flex flex-row flex-wrap gap-[0.5rem] items-center filter-bar">
             {filters.map((f) => (
               <div
                 className="bg-[#5a7399] p-[0.25rem 0.5rem] rounded-[0.25rem] filter"

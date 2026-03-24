@@ -79,7 +79,7 @@ body {
   border-radius: 0.25rem;
   padding: 1rem;
   background: hsl(162, 55.6%, 96.5%);
-  margin: 10px;
+  /* margin: 10px; */
 }
 
 .badge-new {
