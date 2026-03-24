@@ -1,15 +1,5 @@
+const Topbar1 = () => {
+  return <div>test</div>;
+};
 
-function TopFilters(...filters: string[])=> {
-  
-  
-
-  return(
-
-    )
-}
-
-
-
-
-
-
+export default Topbar1;

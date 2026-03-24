@@ -3,6 +3,7 @@ import webheader from "/public/images/bg-header-desktop.svg";
 import IconRemove from "/public/images/icon-remove.svg";
 import "./App.css";
 import data from "./fe-mentors/data.json";
+import Topbar1 from "./companents/topbar1";
 // import { XMarkIcon } from "@heroicons/react/24/solid";
 // now I only need to wear the assets
 
@@ -92,16 +93,19 @@ function App() {
         alt="Jobs"
         className="w-full h-full bg-[#5ba4a4] flex items-center justify-center m-0"
       />
-
-      <div className="app">
+      <div className="mx-auto app">
         {filters.length > 0 && (
-          <div className="bg-[#bdf0f0] p-[0.5] rounded-[0.5rem] flex flex-row flex-wrap gap-[0.5rem] items-center filter-bar">
+          <div className=" -mt-[1.5rem] min-h-[4rem]  max-w-[1360px] bg-[#bdf0f0] p-[0.5] rounded-[0.5rem] flex flex-row flex-wrap gap-[0.5rem] items-center filter-bar">
             {filters.map((f) => (
               <div
                 className="bg-[#5a7399] p-[0.25rem 0.5rem] rounded-[0.25rem] filter"
                 key={f}
               >
-                <span className="bg-[#5ba4a4] border-none cursor-pointer p-[0.4rem 0.75rem] radius-[0.375rem]">
+                <span
+                  className="bg-[#5ba4a4] border-none cursor-pointer p-[0.4rem 0.75rem] radius-[0.375rem] text-white 
+                text-[0.8rem] font-family-inherit transition
+                duration[0.2s] p-[0.25rem 0.5rem] hover:bg-[#488484]"
+                >
                   {f}
                 </span>
                 <button onClick={() => removeFilter(f)}>
@@ -117,7 +121,7 @@ function App() {
             </button>
           </div>
         )}
-        <div className="max-w-[1440px] m-[0 auto] p-[1rem] flex flex-col bg-[152.6, 95.8%, 90.6%] job-list">
+        <div className="max-w-[1360px] flex flex-col bg-[152.6, 95.8%, 90.6%] job-list w-full">
           {filteredJobs.map((job) => (
             <JobCard key={job.id} job={job} onTagClick={addFilter} />
           ))}
