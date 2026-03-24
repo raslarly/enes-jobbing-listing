@@ -1,9 +1,9 @@
 import { useState } from "react";
 import webheader from "/public/images/bg-header-desktop.svg";
-// import iconRemove from "/public/images/icon-remove.svg";
+import IconRemove from "/public/images/icon-remove.svg";
 import "./App.css";
 import data from "./fe-mentors/data.json";
-import { XMarkIcon } from "@heroicons/react/24/solid";
+// import { XMarkIcon } from "@heroicons/react/24/solid";
 // now I only need to wear the assets
 
 interface JobPost {
@@ -37,7 +37,14 @@ function JobCard({ job, onTagClick }: JobCardProps) {
       <div className="job-card-content">
         <div className="job-card-header">
           <span className="company">{job.company}</span>
-          {job.new && <span className="badge-new">NEW!</span>}
+          {job.new && (
+            <>
+              {/* this is bage-new */}
+              <span className="bg-[#b28f6b] p-1 rounded-sm text-white">
+                NEW!
+              </span>
+            </>
+          )}
           {job.featured && <span className="badge-featured">FEATURED!</span>}
         </div>
         <h3>{job.position}</h3>
@@ -80,22 +87,31 @@ function App() {
   };
   return (
     <>
-      <h1 className="header">
-        <img src={webheader} alt="Jobs" />
-      </h1>
+      <img
+        src={webheader}
+        alt="Jobs"
+        className="w-full h-full bg-[#5ba4a4] flex items-center justify-center m-0"
+      />
+
       <div className="app">
         {filters.length > 0 && (
-          <div className="filter-bar">
+          <div className="bg-[#bdf0f0] p-[0.5] rounded-[0.5rem] flex flex-row flex-wrap gap-[0.5rem] items-center filter-bar">
             {filters.map((f) => (
-              <div className="filter" key={f}>
+              <div
+                className="bg-[#5a7399] p-[0.25rem 0.5rem] rounded-[0.25rem] filter"
+                key={f}
+              >
                 <span>{f}</span>
                 <button onClick={() => removeFilter(f)}>
-                  <XMarkIcon style={{ width: "0.75rem" }} />
+                  <IconRemove style={{ width: "0.75rem" }} />
                 </button>
               </div>
             ))}
-            <button className="clear-all" onClick={() => setFilters([])}>
-              clear-all
+            <button
+              className="hover:underline text-green-700"
+              onClick={() => setFilters([])}
+            >
+              Clear
             </button>
           </div>
         )}

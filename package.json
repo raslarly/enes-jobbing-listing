@@ -11,9 +11,10 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@tailwindcss/vite": "^4.2.2",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "tailwindcss": "file:../../../../vite"
+    "tailwindcss": "4.2.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",

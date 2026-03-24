@@ -1,5 +1,5 @@
 /* yeah I'm editing this one */
-/* @import "tailwindcss/tailwind.css"; */
+@import "tailwindcss";
 
 :root {
   --text: #6b6375;
@@ -56,7 +56,6 @@ body {
   }
 }
 #root {
-  width: 1440px;
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
@@ -104,7 +103,7 @@ body {
   padding: 0.25rem 0.5rem;
   font-size: 1.25rem;
 }
-
+/*
 .filter-bar {
   background-color: hsl(162.9, 45.5%, 84.9%);
   padding: 0.5rem;
@@ -115,13 +114,14 @@ body {
   gap: 0.5rem;
   align-items: center;
 }
-
+*/
+/*
 .filter {
   background-color: hsl(162.5, 65.8%, 71.4%);
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
 }
-
+*/
 .job-card-content {
   flex: 1;
 }
@@ -215,12 +215,13 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
-
+/*
 .header {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0px;
   margin: 0px 0;
-  background: hsl(180, 29%, 50%);
+  background: #5ba4a4;
 }
+*/
