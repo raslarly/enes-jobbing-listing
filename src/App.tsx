@@ -101,9 +101,11 @@ function App() {
                 className="bg-[#5a7399] p-[0.25rem 0.5rem] rounded-[0.25rem] filter"
                 key={f}
               >
-                <span>{f}</span>
+                <span className="bg-[#5ba4a4] border-none cursor-pointer p-[0.4rem 0.75rem] radius-[0.375rem]">
+                  {f}
+                </span>
                 <button onClick={() => removeFilter(f)}>
-                  <IconRemove style={{ width: "0.75rem" }} />
+                  <img src={IconRemove} className="w-4 h-4 bg-[#006e1f]" />
                 </button>
               </div>
             ))}
@@ -115,7 +117,7 @@ function App() {
             </button>
           </div>
         )}
-        <div className="job-list">
+        <div className="max-w-[1440px] m-[0 auto] p-[1rem] flex flex-col bg-[152.6, 95.8%, 90.6%] job-list">
           {filteredJobs.map((job) => (
             <JobCard key={job.id} job={job} onTagClick={addFilter} />
           ))}

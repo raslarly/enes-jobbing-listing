@@ -130,7 +130,7 @@ body {
   display: flex;
   align-items: center;
 }
-
+/*
 .job-list {
   max-width: 1440px;
   margin: 0 auto;
@@ -139,7 +139,7 @@ body {
   flex-direction: column;
   background-color: hsl(152.6, 95.8%, 90.6%);
 }
-/*
+
 .tags {
   flex-wrap: wrap;
   display: flex;
