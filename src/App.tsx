@@ -61,7 +61,7 @@ function JobCard({ job, onTagClick }: JobCardProps) {
           <span>{job.location}</span>
         </div>
       </div>
-      <div className="tags">
+      <div className="tags space-x-1">
         {tags.map((tag) => (
           <button className="tag" key={tag} onClick={() => onTagClick(tag)}>
             {tag}
