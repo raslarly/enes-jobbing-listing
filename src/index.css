@@ -33,7 +33,7 @@
   }
 }
 body {
-  background-color: hsl(152.6, 95.8%, 90.6%);
+  background-color: hsl(180, 52%, 96%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -64,7 +64,7 @@ body {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  background-color: hsl(152.6, 95.8%, 90.6%);
+  background-color: hsl(180, 52%, 96%);
 }
 /*
 .job-card {

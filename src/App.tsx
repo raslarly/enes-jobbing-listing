@@ -36,7 +36,7 @@ function JobCard({ job, onTagClick }: JobCardProps) {
     <div
       className={`job-card my-2 rounded-md max-w-[100%] w-[1360px] h-[160px] 
         overflow-hidden flex flex-row items-center gap-[1rem] rounded-[0.25rem] 
-        p-[1rem] bg-white ${job.featured ? "featured" : ""}`}
+        p-[1rem] bg-white ${job.featured ? "featured border-l-5 border-l-[#5ba4a4]" : ""}`}
     >
       <img src={job.logo} alt={job.company} />
       <div className=" flex-1 job-card-content">
@@ -113,29 +113,29 @@ function App() {
       />
       <div className="mx-auto app">
         {filters.length > 0 && (
-          <div className=" -mt-[2rem] min-h-[4rem]  max-w-[1360px] bg-white p-[0.5] rounded-[0.35rem] flex flex-row flex-wrap gap-[0.5rem] items-center filter-bar">
+          <div className=" -mt-[2rem] min-h-[4rem]  max-w-[1360px] bg-white p-[0.5] pl-[2rem] gap-[1rem] rounded-[0.35rem] flex flex-row flex-wrap  items-center filter-bar">
             {filters.map((f) => (
               <div
-                className=" p-[0.1rem] rounded-[0.25rem] flex items-center filter"
+                className=" p-[0.1rem] rounded-[0.25rem] flex items-center filter "
                 key={f}
               >
                 <span
-                  className="bg-[#5ba4a4] border-none cursor-pointer p-[0.15rem] radius-[0.375rem] text-white 
-                text-[0.8rem] font-family-inherit transition
-                duration[0.2s] hover:bg-[#488484] rounded-tl-[0.25rem] rounded-bl-[0.25rem] "
+                  className="bg-[#effafa] border-none cursor-pointer p-[0.15rem] radius-[0.375rem] text-[#488484] 
+                text-[0.8rem] font-family-inherit transition 
+                duration[0.2s] hover:bg-[#488484] hover:text-white rounded-tl-[0.25rem] rounded-bl-[0.25rem] "
                 >
                   {f}
                 </span>
                 <button onClick={() => removeFilter(f)}>
                   <img
                     src={IconRemove}
-                    className=" p-[0.4rem] rounded-br-[0.25rem] rounded-tr-[0.25rem] w-7 h-7 bg-[#488484]"
+                    className=" p-[0.4rem] rounded-br-[0.25rem] rounded-tr-[0.25rem] w-7 h-7 bg-[#488484] hover:bg-[#2c3a3a] "
                   />
                 </button>
               </div>
             ))}
             <button
-              className="hover:underline text-[#5ba4a4]"
+              className="hover:underline text-[#5ba4a4] ml-auto pr-[2rem]"
               onClick={() => setFilters([])}
             >
               Clear
