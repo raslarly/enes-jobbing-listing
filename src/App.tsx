@@ -34,23 +34,31 @@ function JobCard({ job, onTagClick }: JobCardProps) {
   ];
   return (
     <div
-      className={`job-card my-2 rounded-md ${job.featured ? "featured" : ""}`}
+      className={`job-card my-2 rounded-md max-w-[100%] w-[1360px] h-[160px] 
+        overflow-hidden flex flex-row items-center gap-[1rem] rounded-[0.25rem] 
+        p-[1rem] bg-white ${job.featured ? "featured" : ""}`}
     >
       <img src={job.logo} alt={job.company} />
-      <div className="job-card-content">
-        <div className="job-card-header">
-          <span className="company">{job.company}</span>
+      <div className=" flex-1 job-card-content">
+        <div className=" gap-3 flex items-center job-card-header">
+          <span className=" text-[#5ba4a4] p-[0.25rem 0.5rem] text-[1.05rem] font-bold  company">
+            {job.company}
+          </span>
           {job.new && (
             <>
               {/* this is bage-new */}
-              <span className="bg-[#b28f6b] p-1 rounded-sm text-white">
+              <span className="bg-[#5ba4a4] p-1  text-white rounded-[1rem]">
                 NEW!
               </span>
             </>
           )}
-          {job.featured && <span className="badge-featured">FEATURED!</span>}
+          {job.featured && (
+            <span className=" rounded-[1rem] text-white bg-[#2c3a3a] p-1 badge-featured">
+              FEATURED!
+            </span>
+          )}
         </div>
-        <h3 className="flex flex-row text-[#006e1f] text-[1.15rem] font-bold">
+        <h3 className="flex flex-row text-[#5ba4a4] text-[1.15rem] font-bold">
           {job.position}
         </h3>
         <div className=" flex flex-row job-meta gap-1">
@@ -61,9 +69,13 @@ function JobCard({ job, onTagClick }: JobCardProps) {
           <span>{job.location}</span>
         </div>
       </div>
-      <div className="tags space-x-1">
+      <div className="tags  space-x-10">
         {tags.map((tag) => (
-          <button className="tag" key={tag} onClick={() => onTagClick(tag)}>
+          <button
+            className=" bg-[#effafa] p-[0.35rem] rounded-[0.25rem] text-[1rem] hover:text-white hover:bg-[#5ba4a4] text-[#5ba4a4]   tag"
+            key={tag}
+            onClick={() => onTagClick(tag)}
+          >
             {tag}
           </button>
         ))}
@@ -101,26 +113,26 @@ function App() {
       />
       <div className="mx-auto app">
         {filters.length > 0 && (
-          <div className=" -mt-[2rem] min-h-[4rem]  max-w-[1360px] bg-[#bdf0f0] p-[0.5] rounded-[0.5rem] flex flex-row flex-wrap gap-[0.5rem] items-center filter-bar">
+          <div className=" -mt-[2rem] min-h-[4rem]  max-w-[1360px] bg-white p-[0.5] rounded-[0.35rem] flex flex-row flex-wrap gap-[0.5rem] items-center filter-bar">
             {filters.map((f) => (
-              <div
-                className="bg-[#5a7399] p-[0.25rem 0.5rem] rounded-[0.25rem] filter"
-                key={f}
-              >
+              <div className=" p-[0.1rem] rounded-[0.25rem] filter" key={f}>
                 <span
-                  className="bg-[#5ba4a4] border-none cursor-pointer p-[0.4rem 0.75rem] radius-[0.375rem] text-white 
+                  className="bg-[#5ba4a4] border-none cursor-pointer p-[0.15rem] radius-[0.375rem] text-white 
                 text-[0.8rem] font-family-inherit transition
-                duration[0.2s] p-[0.25rem 0.5rem] hover:bg-[#488484]"
+                duration[0.2s] hover:bg-[#488484]"
                 >
                   {f}
                 </span>
                 <button onClick={() => removeFilter(f)}>
-                  <img src={IconRemove} className="w-4 h-4 bg-[#006e1f]" />
+                  <img
+                    src={IconRemove}
+                    className=" p-[0.75rem] w-4 h-4 bg-[#006e1f]"
+                  />
                 </button>
               </div>
             ))}
             <button
-              className="hover:underline text-green-700"
+              className="hover:underline text-[#5ba4a4]"
               onClick={() => setFilters([])}
             >
               Clear
