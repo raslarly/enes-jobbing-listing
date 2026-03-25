@@ -3,7 +3,6 @@ import webheader from "/public/images/bg-header-desktop.svg";
 import IconRemove from "/public/images/icon-remove.svg";
 import "./App.css";
 import data from "./fe-mentors/data.json";
-import Topbar1 from "./companents/topbar1";
 // import { XMarkIcon } from "@heroicons/react/24/solid";
 // now I only need to wear the assets
 
@@ -85,7 +84,7 @@ function JobCard({ job, onTagClick }: JobCardProps) {
 }
 
 function App() {
-  const [jPosts, setJposts] = useState<JobPost[]>(data);
+  const jPosts = data;
   const [filters, setFilters] = useState<string[]>([]);
 
   const filteredJobs =
