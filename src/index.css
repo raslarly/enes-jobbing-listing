@@ -1,6 +1,6 @@
 /* yeah I'm editing this one */
 @import "tailwindcss";
-
+/*
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -32,6 +32,7 @@
     font-size: 16px;
   }
 }
+*/
 body {
   background-color: hsl(180, 52%, 96%);
 }
