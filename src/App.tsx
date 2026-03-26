@@ -1,5 +1,6 @@
 import { useState } from "react";
 import webheader from "/public/images/bg-header-desktop.svg";
+import mobileheader from "/public/images/bg-header-mobile.svg";
 import IconRemove from "/public/images/icon-remove.svg";
 import "./App.css";
 import data from "./fe-mentors/data.json";
@@ -34,14 +35,18 @@ function JobCard({ job, onTagClick }: JobCardProps) {
   ];
   return (
     <div
-      className={`job-card my-2 rounded-md max-w-[100%] w-[1360px] h-[160px] shadow-lg
-        overflow-hidden flex flex-row items-center gap-[1rem] rounded-[0.25rem] 
-        p-[1rem] bg-white ${job.featured ? "featured border-l-5 border-l-[#5ba4a4]" : ""}`}
+      className={`job-card my-2 rounded-md w-full max-w-[1360px] md:w-[1360px] mx-auto mh-[160px] shadow-lg
+        overflow-hidden max-md:overflow-visible flex  max-md:my-[3rem] flex-col items-center max-md:items-start gap-[1rem] rounded-[0.25rem] 
+        p-[1rem] bg-white md:flex-row ${job.featured ? "featured border-l-5 border-l-[#5ba4a4]" : ""}`}
     >
-      <img src={job.logo} alt={job.company} />
+      <img
+        className="md:flex md:flex-start max-md:-mt-[3.5rem] max-md:justify-start"
+        src={job.logo}
+        alt={job.company}
+      />
       <div className=" flex-1 job-card-content">
         <div className=" gap-3 flex items-center job-card-header">
-          <span className=" text-[#5ba4a4] p-[0.25rem 0.5rem] text-[1.05rem] font-bold  company">
+          <span className=" text-[#5ba4a4] p-[0.25rem 0.5rem] text-[1.05rem] md:p-[0.5rem 0.5rem] font-bold  company">
             {job.company}
           </span>
           {job.new && (
@@ -69,10 +74,11 @@ function JobCard({ job, onTagClick }: JobCardProps) {
           <span>{job.location}</span>
         </div>
       </div>
-      <div className="tags  space-x-10">
+      <hr className="md:hidden w-full border-t border-[#7b8e8e] my-2 " />
+      <div className="tags  space-x-10 max-md:flex max-md:flex-wrap max-md:gap-2 md:gap-0">
         {tags.map((tag) => (
           <button
-            className=" bg-[#effafa] p-[0.35rem] rounded-[0.25rem] text-[1rem] hover:cursor-pointer hover:text-white hover:bg-[#5ba4a4] text-[#5ba4a4] font-bold   tag"
+            className=" bg-[#effafa] p-[0.35rem] rounded-[0.25rem] text-[1rem] hover:cursor-pointer hover:text-white hover:bg-[#5ba4a4] text-[#5ba4a4] font-bold tag"
             key={tag}
             onClick={() => onTagClick(tag)}
           >
@@ -109,9 +115,14 @@ function App() {
       <img
         src={webheader}
         alt="Jobs"
-        className="w-full h-full bg-[#5ba4a4] flex items-center justify-center m-0"
+        className=" hidden md:block w-full h-full bg-[#5ba4a4] flex items-center justify-center m-0"
       />
-      <div className="mx-auto app">
+      <img
+        src={mobileheader}
+        alt="Jobs"
+        className="block md:hidden w-full h-full mx-auto bg-[#5ba4a4]"
+      />
+      <div className="mx-auto app px-4 md:px-0">
         {filters.length > 0 && (
           <div className=" -mt-[2rem] min-h-[4rem]  max-w-[1360px] bg-white p-[0.5] pl-[2rem] gap-[1rem] rounded-[0.35rem] flex flex-row flex-wrap shadow-lg items-center filter-bar">
             {filters.map((f) => (
