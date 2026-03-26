@@ -58,7 +58,7 @@ function JobCard({ job, onTagClick }: JobCardProps) {
             </span>
           )}
         </div>
-        <h3 className="flex flex-row text-[#5ba4a4] text-[1.15rem] font-bold">
+        <h3 className="flex flex-row text-black hover:text-[#5ba4a4] text-[1.15rem] font-bold">
           {job.position}
         </h3>
         <div className=" flex flex-row job-meta gap-1">
@@ -72,7 +72,7 @@ function JobCard({ job, onTagClick }: JobCardProps) {
       <div className="tags  space-x-10">
         {tags.map((tag) => (
           <button
-            className=" bg-[#effafa] p-[0.35rem] rounded-[0.25rem] text-[1rem] hover:text-white hover:bg-[#5ba4a4] text-[#5ba4a4]   tag"
+            className=" bg-[#effafa] p-[0.35rem] rounded-[0.25rem] text-[1rem] hover:text-white hover:bg-[#5ba4a4] text-[#5ba4a4] font-bold   tag"
             key={tag}
             onClick={() => onTagClick(tag)}
           >
@@ -120,16 +120,16 @@ function App() {
                 key={f}
               >
                 <span
-                  className="bg-[#effafa] border-none cursor-pointer p-[0.15rem] radius-[0.375rem] text-[#488484] 
-                text-[0.8rem] font-family-inherit transition 
-                duration[0.2s] hover:bg-[#488484] hover:text-white rounded-tl-[0.25rem] rounded-bl-[0.25rem] "
+                  className="bg-[#effafa] border-none cursor-pointer p-[0.15rem] radius-[0.375rem] text-[#5ba4a4] 
+                text-[1rem] font-family-inherit transition flex items-center font-bold
+                duration[0.2s] hover:bg-[#5ba4a4] hover:text-[#effafa] rounded-tl-[0.25rem] rounded-bl-[0.25rem] "
                 >
                   {f}
                 </span>
                 <button onClick={() => removeFilter(f)}>
                   <img
                     src={IconRemove}
-                    className=" p-[0.4rem] rounded-br-[0.25rem] rounded-tr-[0.25rem] w-7 h-7 bg-[#488484] hover:bg-[#2c3a3a] "
+                    className=" p-[0.4rem] rounded-br-[0.25rem] rounded-tr-[0.25rem] w-7 h-7 bg-[#5ba4a4] hover:bg-[#2c3a3a] "
                   />
                 </button>
               </div>
